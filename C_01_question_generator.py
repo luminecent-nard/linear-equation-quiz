@@ -1,5 +1,42 @@
 import random
 
+
+
+def int_check(question, low=None, high=None, exit_code=None):
+
+    #if any integer is allowed
+    if low is None and high is None:
+        error = "Please enter an integer"
+
+    #if the number needs to be below low and high
+    else:
+        error = "incorrect"
+
+    while True:
+        response = input(question).lower()
+
+        #check for infinite mode / exit code
+        if response == exit_code:
+            return response
+
+        try:
+            response  = int(response)
+
+            #check the interger is not too low
+            if low is not None and response < low:
+                print(error)
+
+            #check response is more than low
+            elif high is not None and response > high:
+                print(error)
+
+            #if response is valid return it
+            else:
+                return response
+
+        except ValueError:
+            print(error)
+
 def string_checker(question, valid_ans=('yes', 'no')):
     error = f"please enter a valid option from the following list: {valid_ans}"
     while True:
@@ -19,11 +56,14 @@ def string_checker(question, valid_ans=('yes', 'no')):
 
 #main routine
 #int varibles
+random_picker = []
+correct_ans = int
 math_list = ["+","-","*"]
 question_format = ["1","2","3","xxx"]
 read_format = ["a + 5 = 10 (1)", "a - 5 = 5 (2)", "a5 = 10 (3)"]
 format_decider = random.choice(question_format)
 format_choice_list = []
+chosen_math = []
 #ask what formats
 print("\npick what kind of formats you want to have in your quiz\n"
       "and write the number that corresponds with the format below\n"
@@ -50,13 +90,35 @@ print(f"you chose:{format_choice_list}")
 #makes the questions readable and calculates them
 while True:
 
-    math_type = random.choice(math_list)
-    int_1 = random.randint(1, 100)
-    int_2 = random.randint(1, 100)
+    #adds the +'s and -'s
+    if "1" in format_choice_list:
+        chosen_math.append("+")
+    elif "2" in format_choice_list:
+        chosen_math.append("-")
+    math_type = random.choice(chosen_math)
 
+    #pick numberrrr
+    int_1 = random.randint(1, 99)
+    int_2 = random.randint(1, 99)
 
-    type_1 = f"a{math_type}{int_1}={int_2}"
-    type_2 = f"a{int_1}={int_2}"
-     
+    #makes the computer do magic math
+    if "1" or "2" in format_choice_list:
+        type_1 = f"{int_1} {math_type} {int_2}"
+        random_picker.append(type_1)
+    else:
+        type_2 = f"{int_1} * {int_2}"
+        random_picker.append(type_2)
 
+    current_question = random.choice(random_picker)
 
+    #math
+    expected_answer = eval(current_question)
+
+    readable_question_1 = f"a {math_type} {int_2} = {expected_answer}"
+    readable_question_2 = f"a{int_2} = {expected_answer}"
+
+    #print answer for testing purposes
+
+    #
+
+    user_answer = int_check("answer: ", low=int_1, high=int_1)
