@@ -1,41 +1,48 @@
 import random
 
 
-
-def int_check(question, low=None, high=None, exit_code=None):
+def int_check(number_question, low=None, high=None, exit_code=None):
 
     #if any integer is allowed
     if low is None and high is None:
         error = "Please enter an integer"
 
     #if the number needs to be below low and high
+
     else:
-        error = "incorrect"
+        error = "incorrect, next question"
+
+    error_2 = "please enter an integer"
 
     while True:
-        response = input(question).lower()
+        response = input(number_question).lower()
 
         #check for infinite mode / exit code
         if response == exit_code:
             return response
 
         try:
+
+
             response  = int(response)
+
 
             #check the interger is not too low
             if low is not None and response < low:
-                print(error)
+                return error
 
             #check response is more than low
             elif high is not None and response > high:
-                print(error)
+                return error
 
             #if response is valid return it
             else:
                 return response
 
         except ValueError:
-            print(error)
+
+
+            print(error_2)
 
 def string_checker(question, valid_ans=('yes', 'no')):
     error = f"please enter a valid option from the following list: {valid_ans}"
@@ -56,34 +63,44 @@ def string_checker(question, valid_ans=('yes', 'no')):
 
 #main routine
 #int varibles
-random_picker = []
+current_question = ""
+readable_question = []
 correct_ans = int
-math_list = ["+","-","*"]
-question_format = ["1","2","3","xxx"]
-read_format = ["a + 5 = 10 (1)", "a - 5 = 5 (2)", "a5 = 10 (3)"]
-format_decider = random.choice(question_format)
+math_list = ["+","-"]
+question_format = ["+","-","xxx"]
+read_format = ["a + 5 = 10 (1)", "a - 5 = 5 (2)"]
 format_choice_list = []
 chosen_math = []
 #ask what formats
 print("\npick what kind of formats you want to have in your quiz\n"
-      "and write the number that corresponds with the format below\n"
+      "and write the symbol that corresponds with the format below (+ or -)\n"
       "use xxx to leave once you are finished\n")
 
 while True:
 
-     print(read_format)
-     print(f"\nso far you have chosen {format_choice_list}\n")
-     #ask user what formats they want
-     format_choice = string_checker("choose the kind of formats you want: ", valid_ans=question_format)
-     #repetition canceller
-     if format_choice in format_choice_list:
-          print("\nyou already chose that\n")
-     elif format_choice == "xxx":
-          print("bye")
-          break
-     else:
-          format_choice_list.append(format_choice)
-     format_choice_list.sort()
+    print(read_format)
+    print(f"\nso far you have chosen {format_choice_list}\n")
+    #ask user what formats they want
+    format_choice = string_checker("choose the kind of formats you want: ", valid_ans=question_format)
+    #repetition canceller
+    if format_choice in format_choice_list:
+        print("\nyou already chose that\n")
+
+    elif "-" and "+" in format_choice_list:
+        format_choice_list.append(format_choice)
+        print()
+        break
+
+    elif format_choice == "xxx" and format_choice_list == []:
+        print("\nplease pick a format\n")
+
+    elif format_choice == "xxx":
+        break
+
+    else:
+        format_choice_list.append(format_choice)
+    format_choice_list.sort()
+
 #display choices
 print(f"you chose:{format_choice_list}")
 
@@ -91,34 +108,59 @@ print(f"you chose:{format_choice_list}")
 while True:
 
     #adds the +'s and -'s
-    if "1" in format_choice_list:
+    if "+" in format_choice_list:
         chosen_math.append("+")
-    elif "2" in format_choice_list:
+    elif "-" in format_choice_list:
         chosen_math.append("-")
     math_type = random.choice(chosen_math)
 
-    #pick numberrrr
-    int_1 = random.randint(1, 99)
-    int_2 = random.randint(1, 99)
+    #pick number
+    int_2 = random.randint(2,99)
+    int_1 = random.randint(1,99)
+
+    if math_type == "+":
+        while int_2 < int_1:
+
+            int_2 = random.randint(2, 99)
+
+    else:
+        while int_2 > int_1:
+
+            int_2 = random.randint(1,99)
+
+    #clears the question list
+    readable_question = []
 
     #makes the computer do magic math
-    if "1" or "2" in format_choice_list:
-        type_1 = f"{int_1} {math_type} {int_2}"
-        random_picker.append(type_1)
-    else:
-        type_2 = f"{int_1} * {int_2}"
-        random_picker.append(type_2)
 
-    current_question = random.choice(random_picker)
-
-    #math
+        #format type 1
+    current_question = f"{int_1} {math_type} {int_2}"
     expected_answer = eval(current_question)
-
     readable_question_1 = f"a {math_type} {int_2} = {expected_answer}"
-    readable_question_2 = f"a{int_2} = {expected_answer}"
+    readable_question.append(readable_question_1)
+
 
     #print answer for testing purposes
+    print(f"int_1 or answer: {int_1}")
+    # print(f"computer question: {current_question}")
 
-    #
 
-    user_answer = int_check("answer: ", low=int_1, high=int_1)
+    #print question
+    question = random.choice(readable_question)
+    print(question)
+
+
+    user_answer = int_check("Answer: ", low=int_1, high=int_1, exit_code="xxx")
+    print(user_answer)
+
+    if user_answer == int_1:
+        print("you got it :)")
+    elif user_answer == "incorrect, next question":
+        
+
+
+
+
+    if user_answer == "xxx":
+        break
+
