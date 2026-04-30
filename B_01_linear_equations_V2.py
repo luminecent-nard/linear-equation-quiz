@@ -95,7 +95,8 @@ it is to be treated as 2 x a + 3 = 17.
     """)
 #main routine starts here
 #int variables
-end_game = ""
+quiz_history = []
+end_quiz = ""
 current_question = ""
 readable_question = []
 correct_ans = int
@@ -163,7 +164,7 @@ print(f"you chose:{format_choice_list}")
 #makes the questions readable and calculates them
 while questions_answered < total_questions:
 
-    while end_game != "yes":
+    while end_quiz != "yes":
 
         #adds the +'s and -'s
         if "+" in format_choice_list:
@@ -197,16 +198,14 @@ while questions_answered < total_questions:
         readable_question_1 = f"a {math_type} {int_2} = {expected_answer}"
         readable_question.append(readable_question_1)
 
-
-        #print answer for testing purposes
-        print(f"int_1 or answer: {int_1}")
-        # print(f"computer question: {current_question}")
-
-
         #print question
         print()
         print(f"question: {questions_answered + 1}")
         print()
+
+        #print answer for testing purposes
+        print(f"int_1 or answer: {int_1}")
+
         question = random.choice(readable_question)
         print(question)
 
@@ -215,26 +214,44 @@ while questions_answered < total_questions:
 
         questions_answered += 1
 
+        if user_answer == int_1:
+            result = "correct"
+            print("you got it :)")
+        else:
+            result = "incorrect"
+            print(user_answer)
+            break
+
+
+        history_item = f"question {questions_answered} | The question was {question} | you were {result}"
+        quiz_history.append(history_item)
+
         # make infinite infinite
         if mode == "infinite":
             total_questions += 1
 
-        if user_answer != "xxx":
-            print(user_answer)
-
-        if user_answer == int_1:
-            print("you got it :)")
-        elif user_answer == "incorrect, next question":
-            break
-
-
-
-
 
         if user_answer == "xxx":
-            end_game = "yes"
-            break
+            end_quiz = "yes"
 
-    if end_game == "yes":
+        break
+
+    if end_quiz == "yes":
         print("quiz over")
         break
+
+#game history
+want_history = string_checker("\ndo you want to see the game history? ")
+
+if want_history == "yes":
+    print()
+    make_statement("statistics", "%")
+
+    # all_scores.sort()
+    # average_score = sum(all_scores) / len(all_scores)
+
+    print()
+    make_statement("quiz history", "*")
+    print()
+    for item in quiz_history:
+        print(item)
