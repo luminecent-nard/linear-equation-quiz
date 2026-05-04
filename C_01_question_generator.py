@@ -63,12 +63,13 @@ def string_checker(question, valid_ans=('yes', 'no')):
 
 #main routine
 #int varibles
+end_game = ""
 current_question = ""
 readable_question = []
 correct_ans = int
 math_list = ["+","-"]
 question_format = ["+","-","xxx"]
-read_format = ["a + 5 = 10 (1)", "a - 5 = 5 (2)"]
+read_format = ["a + 5 = 10 (+)", "a - 5 = 5 (-)"]
 format_choice_list = []
 chosen_math = []
 #ask what formats
@@ -107,60 +108,68 @@ print(f"you chose:{format_choice_list}")
 #makes the questions readable and calculates them
 while True:
 
-    #adds the +'s and -'s
-    if "+" in format_choice_list:
-        chosen_math.append("+")
-    elif "-" in format_choice_list:
-        chosen_math.append("-")
-    math_type = random.choice(chosen_math)
+    while end_game != "yes":
 
-    #pick number
-    int_2 = random.randint(2,99)
-    int_1 = random.randint(1,99)
+        #adds the +'s and -'s
+        if "+" in format_choice_list:
+            chosen_math.append("+")
+        elif "-" in format_choice_list:
+            chosen_math.append("-")
+        math_type = random.choice(chosen_math)
 
-    if math_type == "+":
-        while int_2 < int_1:
+        #pick number
+        int_2 = random.randint(2,99)
+        int_1 = random.randint(1,99)
 
-            int_2 = random.randint(2, 99)
+        if math_type == "+":
+            while int_2 < int_1:
 
-    else:
-        while int_2 > int_1:
+                int_2 = random.randint(2, 99)
 
-            int_2 = random.randint(1,99)
+        else:
+            while int_2 > int_1:
 
-    #clears the question list
-    readable_question = []
+                int_2 = random.randint(1,99)
 
-    #makes the computer do magic math
+        #clears the question list
+        readable_question = []
 
-        #format type 1
-    current_question = f"{int_1} {math_type} {int_2}"
-    expected_answer = eval(current_question)
-    readable_question_1 = f"a {math_type} {int_2} = {expected_answer}"
-    readable_question.append(readable_question_1)
+        #makes the computer do magic math
 
-
-    #print answer for testing purposes
-    print(f"int_1 or answer: {int_1}")
-    # print(f"computer question: {current_question}")
+            #format type 1
+        current_question = f"{int_1} {math_type} {int_2}"
+        expected_answer = eval(current_question)
+        readable_question_1 = f"a {math_type} {int_2} = {expected_answer}"
+        readable_question.append(readable_question_1)
 
 
-    #print question
-    question = random.choice(readable_question)
-    print(question)
+        #print answer for testing purposes
+        print(f"int_1 or answer: {int_1}")
+        # print(f"computer question: {current_question}")
 
 
-    user_answer = int_check("Answer: ", low=int_1, high=int_1, exit_code="xxx")
-    print(user_answer)
-
-    if user_answer == int_1:
-        print("you got it :)")
-    elif user_answer == "incorrect, next question":
-        
+        #print question
+        question = random.choice(readable_question)
+        print(question)
 
 
+        user_answer = int_check("Answer: ", low=int_1, high=int_1, exit_code="xxx")
+
+        if user_answer != "xxx":
+            print(user_answer)
+
+        if user_answer == int_1:
+            print("you got it :)")
+        elif user_answer == "incorrect, next question":
+            break
 
 
-    if user_answer == "xxx":
+
+
+        if user_answer == "xxx":
+            end_game = "yes"
+            break
+
+    if end_game == "yes":
+        print("quiz over")
         break
-
