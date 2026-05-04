@@ -27,7 +27,7 @@ def int_check(number_question, low=None, high=None, exit_code=None):
             response  = int(response)
 
 
-            #check the interger is not too low
+            #check the integer is not too low
             if low is not None and response < low:
                 return error
 
@@ -95,6 +95,7 @@ it is to be treated as 2 x a + 3 = 17.
     """)
 #main routine starts here
 #int variables
+all_scores =[]
 quiz_history = []
 end_quiz = ""
 current_question = ""
@@ -107,6 +108,8 @@ format_choice_list = []
 chosen_math = []
 questions_answered =  0
 mode = "normal"
+question = ""
+result = ""
 
 #greet user
 print()
@@ -117,7 +120,7 @@ print()
 
 want_instructions = string_checker("would you me to explain how to solve linear equations? ")
 if want_instructions == "yes":
-    print(instructions())
+    instructions()
 #ask questions that the quiz will be about
 
 #quiz length
@@ -130,8 +133,8 @@ if total_questions == "":
 
 #ask what formats
 print("\npick what kind of formats you want to have in your quiz\n"
-      "and write the symbol that corresponds with the format below (+ or -)\n"
-      "use xxx to leave once you are finished\n")
+      "and write the symbol that corresponds with the format below (+ or -)\n")
+
 
 while True:
 
@@ -139,6 +142,7 @@ while True:
     print(f"\nso far you have chosen {format_choice_list}\n")
     #ask user what formats they want
     format_choice = string_checker("choose the kind of formats you want: ", valid_ans=question_format)
+    print("use xxx to exit when you are finished")
     #repetition canceller
     if format_choice in format_choice_list:
         print("\nyou already chose that\n")
@@ -156,7 +160,7 @@ while True:
 
     else:
         format_choice_list.append(format_choice)
-    format_choice_list.sort()
+
 
 #display choices
 print(f"you chose:{format_choice_list}")
@@ -169,9 +173,10 @@ while questions_answered < total_questions:
         #adds the +'s and -'s
         if "+" in format_choice_list:
             chosen_math.append("+")
-        elif "-" in format_choice_list:
+        if "-" in format_choice_list:
             chosen_math.append("-")
         math_type = random.choice(chosen_math)
+
 
         #pick number
         int_2 = random.randint(2,99)
@@ -212,46 +217,67 @@ while questions_answered < total_questions:
 
         user_answer = int_check("Answer: ", low=int_1, high=int_1, exit_code="xxx")
 
-        questions_answered += 1
-
-        if user_answer == int_1:
-            result = "correct"
-            print("you got it :)")
-        else:
-            result = "incorrect"
-            print(user_answer)
+        if user_answer == "xxx":
+            end_quiz = "yes"
             break
-
-
-        history_item = f"question {questions_answered} | The question was {question} | you were {result}"
-        quiz_history.append(history_item)
 
         # make infinite infinite
         if mode == "infinite":
             total_questions += 1
 
+        #round progression
+        questions_answered += 1
 
-        if user_answer == "xxx":
-            end_quiz = "yes"
+        if user_answer == int_1:
+            result = "correct"
+            print("you got it :)")
+            statistic_result = 1
+            all_scores.append(statistic_result)
+            break
+        else:
+            result = "incorrect"
+            print(user_answer)
+            statistic_result = 0
+            all_scores.append(statistic_result)
+            break
 
-        break
+
+
+
 
     if end_quiz == "yes":
         print("quiz over")
         break
 
+    history_item = f"question {questions_answered} | The question was {question} | you were {result}"
+    quiz_history.append(history_item)
+
 #game history
 want_history = string_checker("\ndo you want to see the game history? ")
 
 if want_history == "yes":
-    print()
-    make_statement("statistics", "%")
+    if questions_answered != 0:
+        print()
+        make_statement("statistics", "%")
 
-    # all_scores.sort()
-    # average_score = sum(all_scores) / len(all_scores)
 
-    print()
-    make_statement("quiz history", "*")
-    print()
-    for item in quiz_history:
-        print(item)
+        all_scores.sort()
+        to_div = 100 / len(all_scores)
+        #i did google how to do this one line as I was stumped
+        amount_correct = all_scores.count(1)
+        percent = to_div * amount_correct
+        print(f"\npercentage of questions correct: {percent:.1f}%")
+
+        print()
+        make_statement("quiz history", "*")
+        print()
+        for item in quiz_history:
+            print()
+            print(item)
+            print()
+    else:
+        print()
+        print("you chicken")
+        print("i dont print code for chickens")
+        print("play the game properly")
+        print("or you will be a chicken forever")
