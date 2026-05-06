@@ -1,7 +1,7 @@
 import random
 
 #functions
-def int_check(number_question, low=None, high=None, exit_code=None):
+def int_check(number_question, questionamt=None, low=None, high=None, exit_code=None):
 
     #if any integer is allowed
     if low is None and high is None:
@@ -23,17 +23,18 @@ def int_check(number_question, low=None, high=None, exit_code=None):
 
         try:
 
+            response = int(response)
 
-            response  = int(response)
-
-
-            #check the integer is not too low
+            # check the integer is not too low
             if low is not None and response < low:
-                return error
+                if questionamt is not None:
+                    print(error_2)
+                else:
+                    return error
 
-            #check response is more than low
+            # check response is more than low
             elif high is not None and response > high:
-                return error
+                print(error_2)
 
             #if response is valid return it
             else:
@@ -125,7 +126,7 @@ if want_instructions == "yes":
 
 #quiz length
 total_questions = int_check("\nHow many questions do you want to answer (press <enter> for infinite): ",
-                       low=1,exit_code="")
+                       questionamt=1, low=1 ,exit_code="")
 
 if total_questions == "":
     mode = "infinite"
@@ -138,7 +139,7 @@ print("\npick what kind of formats you want to have in your quiz\n"
 
 while True:
 
-    print(read_format)
+    print("a + 5 = 10 (+)", "a - 5 = 5 (-)")
     print(f"\nso far you have chosen {format_choice_list}\n")
     #ask user what formats they want
     format_choice = string_checker("choose the kind of formats you want: ", valid_ans=question_format)
@@ -240,10 +241,6 @@ while questions_answered < total_questions:
             statistic_result = 0
             all_scores.append(statistic_result)
             break
-
-
-
-
 
     if end_quiz == "yes":
         print("quiz over")
