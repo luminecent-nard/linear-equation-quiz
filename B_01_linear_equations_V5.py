@@ -158,9 +158,11 @@ while True:
     #prints the potions the user can choose from
     print("a + 5 = 10 (+)", "a - 5 = 5 (-)")
     print(f"\nso far you have chosen {format_choice_list}\n")
+
+    print("use xxx to exit when you are finished")
     #ask user what formats they want
     format_choice = string_checker("would you like your quiz to have addition, subtraction or both: ", valid_ans=question_format)
-    print("use xxx to exit when you are finished")
+
     #repetition canceller
     if format_choice in format_choice_list:
         print("\nyou already chose that\n")
@@ -180,6 +182,7 @@ while True:
 
     else:
         format_choice_list.append(format_choice)
+
 
 
 #display choices
