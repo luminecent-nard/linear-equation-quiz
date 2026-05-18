@@ -110,6 +110,7 @@ mode = "normal"
 readable_question = ""
 result = ""
 statistic_result = 0
+int_1 = 0
 
 
 #greet user
@@ -136,9 +137,7 @@ if total_questions == "":
 print("\npick what kind of formats you want to have in your quiz\n"
       "and write the symbol that corresponds with the format below (+ or -)\n")
 
-
 while True:
-
     #prints the potions the user can choose from
     print("a + 5 = 10 (+)", "a - 5 = 5 (-)")
     print(f"\nso far you have chosen {format_choice_list}\n")
@@ -246,7 +245,7 @@ while questions_answered < total_questions:
 
     #generates the history that will be displayed later on
     all_scores.append(statistic_result)
-    history_item = f"question {questions_answered} | The question was {readable_question} | you were {result}"
+    history_item = f"question {questions_answered} | The question was {readable_question} |the answer was {int_1}| you were {result}"
     quiz_history.append(history_item)
 
 #game history
