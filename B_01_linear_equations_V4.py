@@ -186,18 +186,10 @@ while questions_answered < total_questions:
         int_2 = random.randint(2,99)
         int_1 = random.randint(1,99)
 
-        #tries to make the second number bigger than the first
-        #it allows the question to not be in the negatives
-        if math_type == "+":
-            while int_2 < int_1:
-
-                int_2 = random.randint(2, 99)
-
-        else:
-            while int_2 > int_1:
-
-                int_2 = random.randint(1,99)
-
+        #will swap the numbers if one is below the other
+        if math_type == "-":
+            if int_1 < int_2:
+               int_2, int_1 = int_1, int_2
 
         #makes the computer do magic math
         current_question = f"{int_1} {math_type} {int_2}"
@@ -210,8 +202,8 @@ while questions_answered < total_questions:
         print(f"question: {questions_answered + 1}")
         print()
 
-        #print answer for testing purposes
-        print(f"int_1 or answer: {int_1}")
+        # #print answer for testing purposes
+        # print(f"int_1 or answer: {int_1}")
 
 
         print(readable_question)
@@ -266,7 +258,7 @@ if want_history == "yes":
         #calculates the statistics from the game
         all_scores.sort()
         to_div = 100 / len(all_scores)
-        #i did google how to do this one line as I was stumped
+        #I did google how to do this one line as I was stumped
         amount_correct = all_scores.count(1)
         percent = to_div * amount_correct
         print(f"\npercentage of questions correct: {percent:.1f}%")
