@@ -1,0 +1,113 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36">
+  <diagram name="Page-1" id="lQovrZKYW6CrDsuQ3IFh">
+    <mxGraphModel dx="1663" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="for each question" status="Completed" id="KfoO8sRf5DBSdiWuBtuc-9">
+          <mxCell parent="1" style="swimlane;strokeWidth=2;fontFamily=Permanent Marker;html=0;startSize=1;verticalAlign=bottom;spacingBottom=5;points=[];childLayout=stackLayout;stackBorder=20;stackSpacing=20;resizeLast=0;resizeParent=1;horizontalStack=0;collapsible=0;sketch=1;strokeColor=none;fillStyle=solid;fillColor=#1BA1E2;" vertex="1">
+            <mxGeometry height="200" width="180" x="620" y="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ask question" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-10">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-9" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="39" width="140" x="20" y="21" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="expect answer" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-11">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-9" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="check answer" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-12">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-9" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="140" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="breakdown" status="In progress" id="KfoO8sRf5DBSdiWuBtuc-6">
+          <mxCell parent="1" style="swimlane;strokeWidth=2;fontFamily=Permanent Marker;html=0;startSize=1;verticalAlign=bottom;spacingBottom=5;points=[];childLayout=stackLayout;stackBorder=20;stackSpacing=20;resizeLast=0;resizeParent=1;horizontalStack=0;collapsible=0;sketch=1;strokeColor=none;fillStyle=solid;fillColor=#006600;" vertex="1">
+            <mxGeometry height="500" width="180" x="180" y="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Introcdution" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-7">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="39" width="140" x="20" y="21" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="instructions" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-8">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="quiz question amount" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-16">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="140" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="game loop" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-17">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="200" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="quiz loop" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-18">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="260" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="end game (stats, history)" placeholders="1" id="ssBZwEEMLrnk0ZA9NXz2-1">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-6" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=light-dark(#008A00,#FFD966);fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;fontColor=#ffffff;strokeColor=light-dark(#005700, #b39500);" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="320" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="quiz loop" status="In progress" id="KfoO8sRf5DBSdiWuBtuc-13">
+          <mxCell parent="1" style="swimlane;strokeWidth=2;fontFamily=Permanent Marker;html=0;startSize=1;verticalAlign=bottom;spacingBottom=5;points=[];childLayout=stackLayout;stackBorder=20;stackSpacing=20;resizeLast=0;resizeParent=1;horizontalStack=0;collapsible=0;sketch=1;strokeColor=none;fillStyle=solid;fillColor=#006600;" vertex="1">
+            <mxGeometry height="200" width="180" x="400" y="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ask question" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-14">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-13" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="39" width="140" x="20" y="21" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="expect answer (integer)" placeholders="1" id="KfoO8sRf5DBSdiWuBtuc-15">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-13" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="feedback" placeholders="1" id="ssBZwEEMLrnk0ZA9NXz2-10">
+          <mxCell parent="KfoO8sRf5DBSdiWuBtuc-13" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="140" x="20" y="140" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="KfoO8sRf5DBSdiWuBtuc-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingRight=20;align=left;spacing=20;" value="&lt;b&gt;Quiz ideas&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;linear equations quiz&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="250" x="-149" y="120" as="geometry" />
+        </mxCell>
+        <object label="history" status="Completed" id="EtWLbLJOof10jvF1Vl50-1">
+          <mxCell parent="1" style="swimlane;strokeWidth=2;fontFamily=Permanent Marker;html=0;startSize=1;verticalAlign=bottom;spacingBottom=5;points=[];childLayout=stackLayout;stackBorder=20;stackSpacing=20;resizeLast=0;resizeParent=1;horizontalStack=0;collapsible=0;sketch=1;strokeColor=none;fillStyle=solid;fillColor=#1BA1E2;" vertex="1">
+            <mxGeometry height="412" width="160" x="520" y="350" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ask if user wants to see history" placeholders="1" id="EtWLbLJOof10jvF1Vl50-2">
+          <mxCell parent="EtWLbLJOof10jvF1Vl50-1" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="39" width="120" x="20" y="21" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="if yes:" placeholders="1" id="EtWLbLJOof10jvF1Vl50-3">
+          <mxCell parent="EtWLbLJOof10jvF1Vl50-1" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="120" x="20" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="display stats" placeholders="1" id="EtWLbLJOof10jvF1Vl50-4">
+          <mxCell parent="EtWLbLJOof10jvF1Vl50-1" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="120" x="20" y="140" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="display history" placeholders="1" id="EtWLbLJOof10jvF1Vl50-5">
+          <mxCell parent="EtWLbLJOof10jvF1Vl50-1" style="whiteSpace=wrap;html=1;strokeWidth=2;fillColor=swimlane;fontStyle=1;spacingTop=0;rounded=1;arcSize=9;points=[];fontFamily=Permanent Marker;hachureGap=8;fillWeight=1;" vertex="1">
+            <mxGeometry height="40" width="120" x="20" y="200" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

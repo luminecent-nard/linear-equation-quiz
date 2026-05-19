@@ -1,7 +1,7 @@
 import random
 
 #functions
-def int_check(number_question, questionamt=None, low=None, high=None, exit_code=None):
+def int_check(number_question, question_type=None, low=None, high=None, exit_code=None):
     """checks integers input in the code to make sure they are within a certain range"""
     #if any integer is allowed
     if low is None and high is None:
@@ -27,7 +27,7 @@ def int_check(number_question, questionamt=None, low=None, high=None, exit_code=
 
             # check the integer is not too low
             if low is not None and response < low:
-                if questionamt is not None:
+                if question_type is not None:
                     print(error_2)
                 else:
                     return error
@@ -127,7 +127,7 @@ if want_instructions == "yes":
 
 #quiz length
 total_questions = int_check("\nHow many questions do you want to answer (press <enter> for infinite): ",
-                       questionamt=1, low=1 ,exit_code="")
+                            question_type=1, low=1, exit_code="")
 
 if total_questions == "":
     mode = "infinite"
@@ -150,7 +150,7 @@ while True:
     if format_choice in format_choice_list:
         print("\nyou already chose that\n")
 
-    #kicks the user out if they chose all avalible options
+    #kicks the user out if they chose all available options
     elif "-" and "+" in format_choice_list:
         format_choice_list.append(format_choice)
         print()
